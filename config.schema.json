@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
+  "pluginAlias": "CO2Signal",
   "pluginType": "platform",
   "singular": true,
   "schema": {
@@ -9,7 +9,64 @@
         "title": "Name",
         "type": "string",
         "required": true,
-        "default": "Example Dynamic Platform"
+        "default": "CO2Signal"
+      },
+      "co2IntensityAlertingMode": {
+        "title": "Enable CO₂ Intensity Alerts",
+        "description": "When to alert.",
+        "type": "string",
+        "required": true,
+        "default": "disabled",
+        "oneOf": [
+          {
+            "title": "No alerts",
+            "enum": [
+              "disabled"
+            ]
+          },
+          {
+            "title": "Alert when below the threshold",
+            "enum": [
+              "below"
+            ]
+          },
+          {
+            "title": "Alert when above the threshold",
+            "enum": [
+              "above"
+            ]
+          }
+        ]
+      },
+      "co2IntensityAlertThreshold": {
+        "title": "CO2 Alert Threshold",
+        "description": "When to consider that the CO2 intensity should alert (in gCO2eq/kWh), if enabled.",
+        "type": "integer",
+        "required": true,
+        "default": 60,
+        "minimum": 0,
+        "maximum": 1000
+      },
+      "co2signalAPIKey": {
+        "title": "CO2Signal API Key",
+        "description": "You can request one from https://www.co2signal.com/#Subscriber-Email",
+        "type": "string",
+        "required": true
+      },
+      "co2signalAPILocation": {
+        "title": "Location",
+        "description": "Location where you want the intensity from. One of https://api.electricitymap.org/v3/zones",
+        "type": "string",
+        "required": true
+      },
+      "apiDataRefreshInterval": {
+        "title": "API Data Refresh Interval",
+        "description": "How often we should get data from the API (in minutes).",
+        "type": "integer",
+        "required": true,
+        "default": 2,
+        "minimum": 1,
+        "maximum": 120
       }
     }
   }

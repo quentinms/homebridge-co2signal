@@ -5,6 +5,12 @@
 
 </p>
 
+Repurpose HomeKit's CO2 Sensor (until there's a better category) as a way to add your grid's carbon intensity to your Home app and do automations based on it.
+
+It uses https://www.co2signal.com/ to get the data.
+You'll have to get a (free) API key from them.
+
+Make sure to set the key and your location in the settings.
 
 # Homebridge Platform Plugin Template
 

@@ -1,5 +1,4 @@
 {
-  "private": true,
   "displayName": "CO2Signal",
   "name": "homebridge-co2signal",
   "version": "1.0.0",
